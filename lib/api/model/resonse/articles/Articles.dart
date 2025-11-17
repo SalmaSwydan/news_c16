@@ -30,6 +30,7 @@ class Article {
     publishedAt = json['publishedAt'];
     content = json['content'];
 
+
   }
   Source? source;
   String? author;
@@ -39,6 +40,7 @@ class Article {
   String? urlToImage;
   String? publishedAt;
   String? content;
+
 
 
   Map<String, dynamic> toJson() {

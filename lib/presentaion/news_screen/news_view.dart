@@ -12,7 +12,12 @@ class NewsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
+      () {
+        Navigator.pop(context);
+      },
+      title: category.title,
+      actions: [],
       body: FutureBuilder(future: ApiManager.getInstance()
           .getNewsSources(category.id ?? ""), builder: (context, snapshot) {
         if(snapshot.connectionState == ConnectionState.waiting){

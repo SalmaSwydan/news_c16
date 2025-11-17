@@ -25,7 +25,7 @@ class CategoryView extends StatelessWidget {
             child: ListView.separated(itemBuilder: (context, index) {
              var category =  CategoryModel.categories[index];
             return InkWell(
-                onTap: () {
+                onTap: (){
                   onCategoryClick(category);
                 },
                 child: CategoryCard(model: category, index: index,));

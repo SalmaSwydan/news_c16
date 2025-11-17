@@ -1,10 +1,7 @@
-
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:news_c16/api/model/resonse/articles/ArticlesResponse.dart';
 import 'package:news_c16/api/model/resonse/sources/SourcesResponse.dart';
-
 
 class ApiManager{
   // singleton
@@ -38,7 +35,6 @@ class ApiManager{
     // parsing serialization
     var json = jsonDecode(response.body);
     SourcesResponse sourcesResponse = SourcesResponse.fromJson(json);
-
     return sourcesResponse;
   }
 
