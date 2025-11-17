@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_c16/core/resources/widgets/custom_scaffold.dart';
 import 'package:news_c16/data/models/category_model.dart';
 import 'package:news_c16/presentaion/category_screen/category_view.dart';
-import 'package:news_c16/presentaion/category_screen/widgets/category_card.dart';
-import 'package:news_c16/presentaion/news_screen/news_view.dart';
+import '../category_details/category_details_view.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -25,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // todo navigate to search screen
           }, icon: Icon(Icons.search))
         ],
-      body: categoryModel == null ? CategoryView(onCategoryClick) :NewsView(
+      body: categoryModel == null ? CategoryView(onCategoryClick) :CategoryDetailsView(
         categoryModel!
       )
     );

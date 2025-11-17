@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_c16/api/ApiManager.dart';
 import 'package:news_c16/api/model/resonse/sources/Source.dart';
-import 'package:news_c16/presentaion/news_screen/ArticlesListWidget.dart';
+import '../newslist_details_screen/ArticlesListWidget.dart';
+import '../newslist_details_screen/news_list_view.dart';
 
 class NewsSourcesWidget extends StatefulWidget {
   List<Source> tabs;
@@ -35,19 +36,10 @@ class _NewsSourcesWidgetState extends State<NewsSourcesWidget> {
             tabs: widget.tabs.map((source) => Tab(text: source.name)).toList(),
           ),
           Expanded(
-            child: FutureBuilder(future:ApiManager.getInstance().getArticles(
-                widget.tabs[selectedIndex].id ??""
-              ), builder: (context, snapshot) {
-              if(snapshot.connectionState == ConnectionState.waiting){
-                return Center(child: CircularProgressIndicator(),);
-              }
-              if(snapshot.hasError){
-                return Center(child: Text("Something went wrong"),);
-              }
-              var response = snapshot.data;
-              return ArticlesListWidget(response?.articles ?? []);
+            //is NewsListView recreated each time?
+            //it uses the same widget and just change source parameter
 
-                },)
+            child: NewsListView(source: widget.tabs[selectedIndex]),
           ),
         ],
       ),
