@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_c16/api/ApiManager.dart';
 import 'package:news_c16/api/model/resonse/sources/Source.dart';
-import '../newslist_details_screen/ArticlesListWidget.dart';
 import '../newslist_details_screen/news_list_view.dart';
 
 class NewsSourcesWidget extends StatefulWidget {
