@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_c16/core/resources/widgets/custom_scaffold.dart';
 import 'package:news_c16/data/models/category_model.dart';
 import 'package:news_c16/presentaion/category_screen/widgets/category_card.dart';
 
