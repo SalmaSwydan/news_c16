@@ -7,4 +7,8 @@ abstract class AppAssets{
   static const String science = 'assets/images/science.png';
   static const String tech = 'assets/images/technology.png';
   static const String sport = 'assets/images/sport.png';
+  static const String news_branding = 'assets/images/news_branding.png';
+  static const String news_logo = 'assets/images/news_logo.png';
+
+
 }

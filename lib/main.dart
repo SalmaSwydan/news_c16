@@ -3,6 +3,7 @@ import 'package:news_c16/core/providers/theme_provider.dart';
 import 'package:news_c16/core/resources/app_const/app_routes.dart';
 import 'package:news_c16/core/resources/app_const/app_theme.dart';
 import 'package:news_c16/presentaion/home/home_screen.dart';
+import 'package:news_c16/presentaion/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -30,8 +31,9 @@ class MyApp extends StatelessWidget {
       themeMode: themeProvider.getTheme,
       routes: {
         AppRoutes.HomeScreen: (_) => HomeScreen(),
+        AppRoutes.SplashScreen: (_) => SplashScreen(),
       },
-      initialRoute: AppRoutes.HomeScreen,
+      initialRoute: AppRoutes.SplashScreen,
     );
   }
 }
