@@ -5,33 +5,37 @@ import '../../api/model/resonse/sources/Source.dart';
 import 'ArticlesListWidget.dart' show ArticlesListWidget;
 
 class NewsListView extends StatelessWidget {
-  Source source;
-  NewsListViewModel vm = NewsListViewModel();
-  NewsListView({super.key, required this.source}){
+  final Source source;
+  late NewsListViewModel vm;
+  NewsListView({required this.source, Key? key}) :super(key: key) {
+    vm = NewsListViewModel();
     vm.getArticleBySourceId(source.id ?? "");
   }
 
   @override
   Widget build(BuildContext context) {
-    print(source.id);
-    return ChangeNotifierProvider(create: (context) => vm,
-      child: Consumer<NewsListViewModel>(builder: (context, viewModel, child) {
-       print(viewModel.state.state);
+    return ChangeNotifierProvider.value(
+      value: vm,
+      child: Consumer<NewsListViewModel>(
+        builder: (context, viewModel, child) {
         var screenState = viewModel.state;
-       switch(screenState.state){
-         case ScreenState.Initial:
-         case ScreenState.Loading:{
-         return Center(child: CircularProgressIndicator(),);
-         }
-         case ScreenState.Error:{
-           return Center(child: Text(screenState.errorMessage ?? "Something went wrong"),);
-         }
-         case ScreenState.Success:{
-           return ArticlesListWidget(screenState.articles ?? []);
-         }
-       }
+        switch (screenState.state) {
+          case ScreenState.Initial:
+          case ScreenState.Loading:
+            {
+              return Center(child: CircularProgressIndicator(),);
+            }
+          case ScreenState.Error:
+            {
+              return Center(child: Text(
+                  screenState.errorMessage ?? "Something went wrong"),);
+            }
+          case ScreenState.Success:
+            {
+              return ArticlesListWidget(screenState.articles ?? []);
+            }
+        }
       },),
     );
   }
 }
-
